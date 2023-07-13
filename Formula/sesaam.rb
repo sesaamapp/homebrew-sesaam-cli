@@ -7,20 +7,20 @@ class Sesaam < Formula
 End-to-end encryption and zero-knowledge architecture allows you to share your secret the way you want.
 Encrypt your secret and share the secret link with the people of your choice."
   homepage "https://github.com/sesaamapp/sesaam-cli"
-  version "0.3.0"
+  version "0.3.1"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/sesaamapp/sesaam-cli/releases/download/v0.3.0/sesaam_Darwin_x86_64.tar.gz"
-      sha256 "55e5fb4be24a87ae046ba7a598507388c48f1de52b94dc9d4cfa2b587e02d2b0"
+      url "https://github.com/sesaamapp/sesaam-cli/releases/download/v0.3.1/sesaam_Darwin_x86_64.tar.gz"
+      sha256 "902ea4d28e0ed3950ec3bcdbec40eeddab7b5988129e22a2ac4cc3e24ea1b433"
 
       def install
         bin.install "sesaam"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/sesaamapp/sesaam-cli/releases/download/v0.3.0/sesaam_Darwin_arm64.tar.gz"
-      sha256 "072d8d9bb4c8c918952dddf982b707bca0b3afa30ce038c010ad3cfdae36e279"
+      url "https://github.com/sesaamapp/sesaam-cli/releases/download/v0.3.1/sesaam_Darwin_arm64.tar.gz"
+      sha256 "b307521afa286fd4a552c321e444a3401596ca61578372ec184986082ac66c5f"
 
       def install
         bin.install "sesaam"
@@ -29,17 +29,17 @@ Encrypt your secret and share the secret link with the people of your choice."
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/sesaamapp/sesaam-cli/releases/download/v0.3.0/sesaam_Linux_arm64.tar.gz"
-      sha256 "04253f3f4f1e7889dbe4aa96e0cc44b2b9d7263730196aa75b9839bf57c89211"
+    if Hardware::CPU.intel?
+      url "https://github.com/sesaamapp/sesaam-cli/releases/download/v0.3.1/sesaam_Linux_x86_64.tar.gz"
+      sha256 "44c0c26a414e6ee8bc961ffa2c1f6e384a943e3287bc7832cf259ca5d8dada5c"
 
       def install
         bin.install "sesaam"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/sesaamapp/sesaam-cli/releases/download/v0.3.0/sesaam_Linux_x86_64.tar.gz"
-      sha256 "1949fb71066c104c5aa87fbbbba859d7ee0fe0bf5f9422f1621d36f838d2693b"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/sesaamapp/sesaam-cli/releases/download/v0.3.1/sesaam_Linux_arm64.tar.gz"
+      sha256 "f1cbf72aaccc4dbcfd79e54a9b068dbc997067a56be9790e959bbbfceb298b87"
 
       def install
         bin.install "sesaam"
