@@ -7,46 +7,40 @@ class Sesaam < Formula
 End-to-end encryption and zero-knowledge architecture allows you to share your secret the way you want.
 Encrypt your secret and share the secret link with the people of your choice."
   homepage "https://github.com/sesaamapp/sesaam-cli"
-  version "0.3.3"
+  version "0.4.0"
 
   on_macos do
-    on_intel do
-      url "https://github.com/sesaamapp/sesaam-cli/releases/download/v0.3.3/sesaam_Darwin_x86_64.tar.gz"
-      sha256 "9db4e807c66f1b927db141ab7cddbd07bae4be67493c11a07ad6adc82b505251"
+    if Hardware::CPU.intel?
+      url "https://github.com/sesaamapp/sesaam-cli/releases/download/v0.4.0/sesaam_Darwin_x86_64.tar.gz"
+      sha256 "34b81e2ae82175f6b65d3f35e416c5437615040dc1a27ee8da6ef59e25a92214"
 
-      def install
+      define_method(:install) do
         bin.install "sesaam"
       end
     end
-    on_arm do
-      url "https://github.com/sesaamapp/sesaam-cli/releases/download/v0.3.3/sesaam_Darwin_arm64.tar.gz"
-      sha256 "075ba58b7f4004fd7ced113fbbf8890adf6bd7c6e81c054ec93a46abbeaebbca"
+    if Hardware::CPU.arm?
+      url "https://github.com/sesaamapp/sesaam-cli/releases/download/v0.4.0/sesaam_Darwin_arm64.tar.gz"
+      sha256 "1d2b226ae32430cbb8a3f57e2f5294b314d25c15bed8727243568faae6c808fd"
 
-      def install
+      define_method(:install) do
         bin.install "sesaam"
       end
     end
   end
 
   on_linux do
-    on_intel do
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/sesaamapp/sesaam-cli/releases/download/v0.3.3/sesaam_Linux_x86_64.tar.gz"
-        sha256 "93a051822bd19bb320de1488a12d2cc0d90104df5315b7d77b010f2b1e679d4f"
-
-        def install
-          bin.install "sesaam"
-        end
+    if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
+      url "https://github.com/sesaamapp/sesaam-cli/releases/download/v0.4.0/sesaam_Linux_x86_64.tar.gz"
+      sha256 "a8285a5ff1492ddb4436f31bd6ccfd020cd1070634e463ceecbb123143ec03f5"
+      define_method(:install) do
+        bin.install "sesaam"
       end
     end
-    on_arm do
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/sesaamapp/sesaam-cli/releases/download/v0.3.3/sesaam_Linux_arm64.tar.gz"
-        sha256 "97b5e0c747d4b7ec0a758cd838fc95bcdf4e3172527a41008ed4692a3f492136"
-
-        def install
-          bin.install "sesaam"
-        end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/sesaamapp/sesaam-cli/releases/download/v0.4.0/sesaam_Linux_arm64.tar.gz"
+      sha256 "1d35a8c9ca186a854a26ef8722b574d749ad803f5e3f1788d07ac62ce019320c"
+      define_method(:install) do
+        bin.install "sesaam"
       end
     end
   end
